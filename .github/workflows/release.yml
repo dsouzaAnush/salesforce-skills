@@ -1,0 +1,150 @@
+# GitHub Actions Workflow: Create Release
+#
+# Triggered when a version tag (v*.*.*) is pushed.
+# Generates changelog from commits and creates a GitHub release.
+#
+# Usage:
+#   Push a tag: git tag v1.2.0 && git push origin v1.2.0
+#   Or use: ./scripts/create-release.sh v1.2.0
+#
+
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for changelog generation
+
+      - name: Get version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          VERSION_NO_V=${VERSION#v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "version_no_v=$VERSION_NO_V" >> $GITHUB_OUTPUT
+          echo "Release version: $VERSION"
+
+      - name: Get previous tag
+        id: previous_tag
+        run: |
+          # Get the tag before the current one
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -z "$PREVIOUS_TAG" ]; then
+            # No previous tag, use first commit
+            PREVIOUS_TAG=$(git rev-list --max-parents=0 HEAD)
+            echo "No previous tag found, using first commit: $PREVIOUS_TAG"
+          fi
+          echo "previous_tag=$PREVIOUS_TAG" >> $GITHUB_OUTPUT
+          echo "Previous tag: $PREVIOUS_TAG"
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          PREVIOUS_TAG="${{ steps.previous_tag.outputs.previous_tag }}"
+          CURRENT_TAG="${{ steps.version.outputs.version }}"
+
+          echo "Generating changelog from $PREVIOUS_TAG to $CURRENT_TAG"
+
+          # Generate changelog from commits
+          CHANGELOG=$(git log "$PREVIOUS_TAG".."$CURRENT_TAG" --pretty=format:"- %s (%h)" --no-merges 2>/dev/null || echo "- Initial release")
+
+          # Count statistics
+          COMMIT_COUNT=$(git rev-list "$PREVIOUS_TAG".."$CURRENT_TAG" --count 2>/dev/null || echo "0")
+          FILE_COUNT=$(git diff "$PREVIOUS_TAG".."$CURRENT_TAG" --stat --numstat 2>/dev/null | wc -l || echo "0")
+
+          # Categorize commits
+          FEATURES=$(echo "$CHANGELOG" | grep -iE "^- (feat|add|new)" | head -20 || true)
+          FIXES=$(echo "$CHANGELOG" | grep -iE "^- (fix|bug|patch)" | head -20 || true)
+          DOCS=$(echo "$CHANGELOG" | grep -iE "^- (doc|readme)" | head -10 || true)
+          CHORES=$(echo "$CHANGELOG" | grep -iE "^- (chore|refactor|update|bump)" | head -10 || true)
+
+          # Build release notes
+          RELEASE_NOTES="## What's Changed
+
+          "
+
+          if [ -n "$FEATURES" ]; then
+            RELEASE_NOTES+="### ✨ Features
+          $FEATURES
+
+          "
+          fi
+
+          if [ -n "$FIXES" ]; then
+            RELEASE_NOTES+="### 🐛 Bug Fixes
+          $FIXES
+
+          "
+          fi
+
+          if [ -n "$DOCS" ]; then
+            RELEASE_NOTES+="### 📚 Documentation
+          $DOCS
+
+          "
+          fi
+
+          if [ -n "$CHORES" ]; then
+            RELEASE_NOTES+="### 🔧 Maintenance
+          $CHORES
+
+          "
+          fi
+
+          RELEASE_NOTES+="---
+
+          **Full Changelog**: https://github.com/${{ github.repository }}/compare/$PREVIOUS_TAG...$CURRENT_TAG
+
+          **Statistics**: $COMMIT_COUNT commits, $FILE_COUNT files changed
+
+          ## Installation
+
+          ### Install or Update
+          \`\`\`bash
+          curl -sSL https://raw.githubusercontent.com/${{ github.repository }}/main/extras/claude-code/tools/install.sh | bash
+          \`\`\`
+
+          ### Already Installed?
+          \`\`\`bash
+          python3 ~/.claude/sf-skills-install.py --update
+          \`\`\`
+          "
+
+          # Write to file (multi-line output handling)
+          echo "$RELEASE_NOTES" > release_notes.md
+          echo "changelog_file=release_notes.md" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: sf-skills ${{ steps.version.outputs.version }}
+          body_path: release_notes.md
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.version, '-') }}
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          echo "## Release Created Successfully! 🎉" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version**: ${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Previous**: ${{ steps.previous_tag.outputs.previous_tag }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "View the release at: https://github.com/${{ github.repository }}/releases/tag/${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY

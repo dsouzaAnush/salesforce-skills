@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SF Skills Ecosystem Overview</title>
+  <style>
+    :root {
+      --bg: #f7f8fc;
+      --surface: rgba(255,255,255,0.82);
+      --border: rgba(15,23,42,0.10);
+      --text: #0f172a;
+      --text-dim: #475569;
+      --dev: #4f46e5;
+      --quality: #65a30d;
+      --foundation: #0284c7;
+      --integration: #d97706;
+      --ai: #be185d;
+      --ops: #059669;
+      --shadow: 0 24px 60px rgba(15,23,42,0.08);
+      --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "SFMono-Regular", "Cascadia Code", "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(79,70,229,0.08), transparent 34%),
+        radial-gradient(circle at top right, rgba(190,24,93,0.08), transparent 26%),
+        radial-gradient(circle at bottom center, rgba(5,150,105,0.08), transparent 30%),
+        var(--bg);
+    }
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 40px 24px 56px;
+    }
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(79,70,229,0.10);
+      color: var(--dev);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(2.1rem, 5vw, 3.7rem);
+      line-height: 1.02;
+    }
+    .lead {
+      max-width: 900px;
+      margin: 0;
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      line-height: 1.65;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .meta span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      color: var(--text-dim);
+    }
+    .visual {
+      margin-top: 24px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .card {
+      min-width: 0;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.05);
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+    .card p, .card li {
+      color: var(--text-dim);
+      line-height: 1.55;
+    }
+    ul {
+      margin: 12px 0 0 18px;
+      padding: 0;
+    }
+    .footer-note {
+      margin-top: 18px;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+    code {
+      font-family: var(--font-mono);
+      background: rgba(15,23,42,0.06);
+      border-radius: 8px;
+      padding: 2px 6px;
+    }
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .page { padding: 20px 14px 32px; }
+      .hero, .visual, .card { border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="eyebrow">Salesforce Skills Map</span>
+      <h1>SF Skills Ecosystem Overview</h1>
+      <p class="lead">
+        A premium, README-friendly companion visual for the <code>sf-skills</code> repository. Use it as a capability map:
+        foundation and integration support implementation, quality reinforces delivery, AI skills cluster around Agentforce,
+        and <code>sf-deploy</code> moves finished assets across environments.
+      </p>
+      <div class="meta">
+        <span>19 skills</span>
+        <span>7 Claude Code agents</span>
+        <span>hooks + LSP feedback loops</span>
+      </div>
+    </section>
+
+    <section class="visual">
+      <img src="./skill-capability-map-v3.svg" alt="SF Skills capability map overview" />
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>How to read the map</h2>
+        <ul>
+          <li><strong>Foundation</strong> gives you metadata, data, and access context.</li>
+          <li><strong>Integration</strong> handles OAuth, callouts, credentials, and event patterns.</li>
+          <li><strong>Development</strong> is where Apex, Flow, LWC, and SOQL implementation happens.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Why Agentforce is centered</h2>
+        <p>
+          The AI lane is intentionally built around <code>sf-ai-agentforce</code>. Agent Script, persona design, observability,
+          and test-spec workflows all sit around that hub, so the diagram treats it as the focal capability rather than just another node.
+        </p>
+      </article>
+      <article class="card">
+        <h2>Why SVG works better than Mermaid here</h2>
+        <p>
+          GitHub-native Mermaid is great for small graphs, but once labels and connections grow, GitHub scales the diagram down aggressively.
+          A custom SVG keeps typography crisp, gives full control over spacing, and stays readable inside the README.
+        </p>
+      </article>
+    </section>
+
+    <p class="footer-note">
+      Tip: open this file locally in a browser for the best viewing experience, or embed the SVG directly in the README with a full-width <code>&lt;img&gt;</code> tag.
+    </p>
+  </main>
+</body>
+</html>

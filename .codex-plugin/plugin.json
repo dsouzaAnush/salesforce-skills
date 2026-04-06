@@ -1,0 +1,44 @@
+{
+  "name": "sf-skills",
+  "version": "4.0.0",
+  "description": "Salesforce development skills for Codex, Claude Code, and other agentic coding tools.",
+  "author": {
+    "name": "Jag Valaiyapathy",
+    "url": "https://github.com/Jaganpro"
+  },
+  "homepage": "https://github.com/Jaganpro/sf-skills",
+  "repository": "https://github.com/Jaganpro/sf-skills",
+  "license": "MIT",
+  "keywords": [
+    "salesforce",
+    "codex",
+    "claude-code",
+    "plugin",
+    "skills",
+    "apex",
+    "lwc",
+    "flow",
+    "soql"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Salesforce Skills",
+    "shortDescription": "Salesforce coding skills for Codex and Claude Code.",
+    "longDescription": "A hybrid skills and plugin repository for Salesforce-focused coding agents, with reusable sf-* skills at the core and Claude Code compatibility tooling kept under extras/claude-code.",
+    "developerName": "Jag Valaiyapathy",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Jaganpro/sf-skills",
+    "defaultPrompt": [
+      "Use Salesforce Skills to review this Apex class.",
+      "Help me build a Flow and matching tests.",
+      "Audit this LWC for SLDS and performance issues."
+    ],
+    "brandColor": "#0176D3",
+    "composerIcon": "./assets/salesforce-logo.png",
+    "logo": "./assets/salesforce-logo.png"
+  }
+}
