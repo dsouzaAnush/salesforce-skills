@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/salesforce-logo.png" alt="Salesforce cloud logo" width="88" height="88">
+</p>
+
 # Salesforce Skills for Agentic Coding Tools
 
 > 💙 **Community-powered agentic coding knowledge, shared by a Salesforce Certified Technical Architect (CTA)**
