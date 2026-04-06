@@ -281,7 +281,7 @@ main() {
     echo "    2. Create GitHub Release with notes"
     echo ""
     echo "  View release at:"
-    echo "    https://github.com/Jaganpro/sf-skills/releases/tag/$new_version"
+    echo "    https://github.com/dsouzaAnush/salesforce-skills/releases/tag/$new_version"
     echo ""
 }
 

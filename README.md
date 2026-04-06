@@ -6,7 +6,7 @@
 
 > 💙 **Community-powered agentic coding knowledge, shared by a Salesforce Certified Technical Architect (CTA)**
 
-[![Author](https://img.shields.io/badge/Author-Jag_Valaiyapathy-blue?logo=github)](https://github.com/Jaganpro)
+[![Maintainer](https://img.shields.io/badge/Maintainer-Anush_Dsouza-blue?logo=github)](https://github.com/dsouzaAnush)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-36-4F46E5)](#available-skills)
 [![Claude Code Agents](https://img.shields.io/badge/Claude_Code_Agents-7-059669)](#agent-team)
@@ -59,9 +59,9 @@ The library is organized by capability area so you can scan quickly, pick the ri
 | If you want... | Use this | Best for |
 |---|---|---|
 | Codex plugin from a local checkout | Repo root plugin manifest + `.agents/plugins/marketplace.json` | Codex plugin workflows and local plugin development |
-| Skills only, any supported coding agent | <code>npx skills add Jaganpro/sf-skills</code> | Codex, Gemini CLI, OpenCode, Amp, Claude Code without local hooks |
-| Full Claude Code experience | <code>curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.sh &#124; bash</code> | Hooks, agents, LSP, guardrails |
-| Manual / Windows / CI-friendly install | <code>curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.py &#124; python3</code> | Direct installer control without bash wrapper |
+| Skills only, any supported coding agent | <code>npx skills add dsouzaAnush/salesforce-skills</code> | Codex, Gemini CLI, OpenCode, Amp, Claude Code without local hooks |
+| Full Claude Code experience | <code>curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh &#124; bash</code> | Hooks, agents, LSP, guardrails |
+| Manual / Windows / CI-friendly install | <code>curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.py &#124; python3</code> | Direct installer control without bash wrapper |
 
 ### Codex Plugin
 
@@ -77,7 +77,7 @@ That keeps `skills/` portable while still making the repo installable as a plugi
 > Requires [Node.js 18+](https://nodejs.org/) (provides the `npx` command)
 
 ```bash
-npx skills add Jaganpro/sf-skills
+npx skills add dsouzaAnush/salesforce-skills
 ```
 
 Works with Claude Code, Codex, Gemini CLI, OpenCode, Amp, and [40+ agents](https://agentskills.io).
@@ -86,10 +86,10 @@ Works with Claude Code, Codex, Gemini CLI, OpenCode, Amp, and [40+ agents](https
 
 ```bash
 # Install a single skill
-npx skills add Jaganpro/sf-skills --skill sf-apex
+npx skills add dsouzaAnush/salesforce-skills --skill sf-apex
 
 # List available skills before installing
-npx skills add Jaganpro/sf-skills --list
+npx skills add dsouzaAnush/salesforce-skills --list
 ```
 
 ### Claude Code (Full Experience)
@@ -97,7 +97,7 @@ npx skills add Jaganpro/sf-skills --list
 > **Using Claude Code?** This path is recommended — `npx` installs skills only, while the installer adds the full local experience: skills + agents + hooks + LSP + guardrails.
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh | bash
 ```
 
 This installs 36 skills, 7 specialist agents, a shared hook system, and the local LSP engine. It also configures LLM-powered guardrails (Haiku prompt hook), SOQL schema validation, Prettier auto-formatting, Code Analyzer (PMD/ESLint), and debug log analysis (Haiku agent hook).
@@ -109,13 +109,13 @@ This installs 36 skills, 7 specialist agents, a shared hook system, and the loca
 ### Direct Python Installer (manual / Windows / CI)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.py | python3
+curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.py | python3
 ```
 
 Want the optional Data Cloud runtime too?
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.py | python3 - --with-datacloud-runtime
+curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.py | python3 - --with-datacloud-runtime
 ```
 
 Use this path when you want to:
@@ -589,7 +589,7 @@ This is the working mental model for the ecosystem: foundation and integration s
 All skills follow the [Agent Skills open standard](https://agentskills.io). Install with `npx skills add` for any supported agent:
 
 ```bash
-npx skills add Jaganpro/sf-skills
+npx skills add dsouzaAnush/salesforce-skills
 ```
 
 | Tool | Status | Install Method | |
@@ -601,7 +601,7 @@ npx skills add Jaganpro/sf-skills
 | **Amp CLI** | ✅ Compatible | `npx skills add` or `.claude/skills/` | ![Amp](https://img.shields.io/badge/Sourcegraph-Amp-FF5543?logo=sourcegraph&logoColor=white) |
 | **Droid CLI** | ✅ Compatible | `npx skills add` | ![Factory](https://img.shields.io/badge/Factory.ai-Droid-6366F1?logo=robot&logoColor=white) |
 
-> 🤝 **Call for Volunteers!** This repo is community-driven. We need testers on different CLIs — [open an issue](https://github.com/Jaganpro/sf-skills/issues) to get started.
+> 🤝 **Call for Volunteers!** This repo is community-driven. We need testers on different CLIs — [open an issue](https://github.com/dsouzaAnush/salesforce-skills/issues) to get started.
 
 </details>
 
@@ -712,7 +712,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## Issues & Support
 
-- [GitHub Issues](https://github.com/Jaganpro/sf-skills/issues)
+- [GitHub Issues](https://github.com/dsouzaAnush/salesforce-skills/issues)
 
 ## License
 

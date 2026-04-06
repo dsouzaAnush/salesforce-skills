@@ -3,10 +3,10 @@
 # sf-skills Installer for Claude Code - Newbie-Friendly Edition
 #
 # Usage:
-#   curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.sh | bash
+#   curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh | bash
 #
 # Or download and run manually:
-#   curl -O https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.sh
+#   curl -O https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh
 #   chmod +x install.sh
 #   ./install.sh
 #
@@ -18,9 +18,9 @@ set -euo pipefail
 # ============================================================================
 
 # URLs
-GITHUB_RAW="https://raw.githubusercontent.com/Jaganpro/sf-skills/main"
+GITHUB_RAW="https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main"
 INSTALL_PY_URL="${GITHUB_RAW}/extras/claude-code/tools/install.py"
-DOCS_URL="https://github.com/Jaganpro/sf-skills"
+DOCS_URL="https://github.com/dsouzaAnush/salesforce-skills"
 
 # Requirements
 MIN_PYTHON_MAJOR=3

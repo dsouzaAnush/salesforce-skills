@@ -15,7 +15,7 @@ Tools for installing sf-skills into Claude Code.
 ### One-liner (recommended)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh | bash
 ```
 
 The bash wrapper checks your environment (Python 3.12+, Homebrew, SSL certs, Claude Code directory) and offers to install missing dependencies before downloading and running the Python installer.
@@ -23,13 +23,13 @@ The bash wrapper checks your environment (Python 3.12+, Homebrew, SSL certs, Cla
 ### Direct Python install
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.py | python3
+curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.py | python3
 ```
 
 ### From a local clone
 
 ```bash
-git clone https://github.com/Jaganpro/sf-skills
+git clone https://github.com/dsouzaAnush/salesforce-skills
 cd sf-skills
 python3 extras/claude-code/tools/install.py
 ```
@@ -119,7 +119,7 @@ python3 ~/.claude/sf-skills-install.py --diagnose
 For installing sf-skills into other agentic coding CLIs (OpenCode, Codex, Gemini, Cursor, etc.), use the `npx` method:
 
 ```bash
-npx skills add Jaganpro/sf-skills
+npx skills add dsouzaAnush/salesforce-skills
 ```
 
 See the [main README](../../../README.md) for details.

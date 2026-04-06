@@ -10,7 +10,7 @@ jvalaiyapathy@salesforce.com
 
 **Date:** March 2026
 
-**License:** MIT — [github.com/Jaganpro/sf-skills](https://github.com/Jaganpro/sf-skills)
+**License:** MIT — [github.com/dsouzaAnush/salesforce-skills](https://github.com/dsouzaAnush/salesforce-skills)
 
 ---
 
@@ -1055,13 +1055,13 @@ Droid CLI          Factory.ai        npx skills add
 **Any AI coding agent:**
 
 ```bash
-npx skills add Jaganpro/sf-skills
+npx skills add dsouzaAnush/salesforce-skills
 ```
 
 **Claude Code (full experience with hooks, agents, LSP, guardrails):**
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh | bash
 ```
 
 ---
@@ -1102,15 +1102,15 @@ Every tool used in this paper is available right now:
 
 ```bash
 # Install sf-skills (any AI coding agent)
-npx skills add Jaganpro/sf-skills
+npx skills add dsouzaAnush/salesforce-skills
 
 # Or full Claude Code experience
-curl -sSL https://raw.githubusercontent.com/Jaganpro/sf-skills/main/extras/claude-code/tools/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh | bash
 ```
 
 ### Links
 
-- **sf-skills GitHub:** [github.com/Jaganpro/sf-skills](https://github.com/Jaganpro/sf-skills)
+- **sf-skills GitHub:** [github.com/dsouzaAnush/salesforce-skills](https://github.com/dsouzaAnush/salesforce-skills)
 - **Agent Skills Standard:** [agentskills.io](https://agentskills.io)
 - **Agent Script Documentation:** [developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-script.html)
 - **Salesforce CLI:** [developer.salesforce.com/tools/salesforcecli](https://developer.salesforce.com/tools/salesforcecli)

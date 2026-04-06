@@ -52,7 +52,7 @@ The rise of agentic AI tools has made it trivially easy to mass-generate "contri
 
 ```bash
 # Fork the repository on GitHub, then:
-git clone https://github.com/Jaganpro/sf-skills.git
+git clone https://github.com/dsouzaAnush/salesforce-skills.git
 cd sf-skills
 ```
 
@@ -302,7 +302,7 @@ PATCH: Bug fixes, documentation updates, minor improvements
 
 **Do NOT open public issues for security vulnerabilities.**
 
-Contact the maintainer privately via GitHub: https://github.com/Jaganpro
+Contact the maintainer privately via GitHub: https://github.com/dsouzaAnush
 
 Include:
 - Description of vulnerability
@@ -336,8 +336,8 @@ Project maintainers will enforce these standards and may remove, edit, or reject
 
 ## ❓ Questions?
 
-- Check existing [Issues](https://github.com/Jaganpro/sf-skills/issues)
-- Open a new issue if needed: [GitHub Issues](https://github.com/Jaganpro/sf-skills/issues)
+- Check existing [Issues](https://github.com/dsouzaAnush/salesforce-skills/issues)
+- Open a new issue if needed: [GitHub Issues](https://github.com/dsouzaAnush/salesforce-skills/issues)
 - Review the [README](README.md)
 
 ## 🙏 Recognition

@@ -3,11 +3,11 @@
   "version": "4.0.0",
   "description": "Salesforce development skills for Codex, Claude Code, and other agentic coding tools.",
   "author": {
-    "name": "Jag Valaiyapathy",
-    "url": "https://github.com/Jaganpro"
+    "name": "Anush Dsouza",
+    "url": "https://github.com/dsouzaAnush"
   },
-  "homepage": "https://github.com/Jaganpro/sf-skills",
-  "repository": "https://github.com/Jaganpro/sf-skills",
+  "homepage": "https://github.com/dsouzaAnush/salesforce-skills",
+  "repository": "https://github.com/dsouzaAnush/salesforce-skills",
   "license": "MIT",
   "keywords": [
     "salesforce",
@@ -25,13 +25,13 @@
     "displayName": "Salesforce Skills",
     "shortDescription": "Salesforce coding skills for Codex and Claude Code.",
     "longDescription": "A hybrid skills and plugin repository for Salesforce-focused coding agents, with reusable sf-* skills at the core and Claude Code compatibility tooling kept under extras/claude-code.",
-    "developerName": "Jag Valaiyapathy",
+    "developerName": "Anush Dsouza",
     "category": "Developer Tools",
     "capabilities": [
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/Jaganpro/sf-skills",
+    "websiteURL": "https://github.com/dsouzaAnush/salesforce-skills",
     "defaultPrompt": [
       "Use Salesforce Skills to review this Apex class.",
       "Help me build a Flow and matching tests.",
