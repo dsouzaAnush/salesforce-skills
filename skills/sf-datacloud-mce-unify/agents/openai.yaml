@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCE Data Cloud Unify"
+  short_description: "Unify Marketing Cloud Engagement data in Data Cloud."
+  default_prompt: "Connect Marketing Cloud Engagement to Salesforce Data Cloud and unify email opens, clicks, and sends with customer profiles for segmentation and personalization."
