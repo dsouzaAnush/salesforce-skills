@@ -30,6 +30,27 @@ A reusable hybrid plugin and skill library for **Salesforce-focused coding agent
 - `extras/claude-code/` contains the Claude-only compatibility layer: installers, agents, shared hooks, code analyzer assets, and LSP tooling.
 - Future non-Salesforce families such as `heroku-*` can be added under `skills/` without another major top-level reorg.
 
+## Source-of-Truth Policy
+
+This repository treats [Jaganpro/sf-skills](https://github.com/Jaganpro/sf-skills) as the canonical source of truth for upstream skill content.
+
+Allowed local additions are packaging and compatibility layers for agent runtimes such as Codex, Claude Code, and OpenClaw, provided they do **not** change the upstream-owned skill content itself.
+
+Examples of acceptable additive files:
+
+- `agents/openai.yaml` generated for Codex skill metadata
+- per-skill icon assets used by Codex metadata
+- repo-root plugin files such as `.codex-plugin/plugin.json` and `.agents/plugins/marketplace.json`
+- Claude Code tooling kept outside the upstream skill content boundary under `extras/claude-code/`
+
+Rules:
+
+- shared upstream files under `skills/sf-*/` must stay semantically identical to `Jaganpro/sf-skills`
+- local compatibility files may be added, regenerated, or removed as needed
+- future syncs should start from upstream content first, then regenerate the local Codex metadata layer
+
+Use [`scripts/sync_upstream_skills.py`](scripts/sync_upstream_skills.py) to resync from the upstream repo without carrying local content drift forward.
+
 ---
 
 <a id="available-skills"></a>
