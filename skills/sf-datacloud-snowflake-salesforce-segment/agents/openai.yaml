@@ -1,0 +1,4 @@
+interface:
+  display_name: "Snowflake Salesforce Segment"
+  short_description: "Build Data Cloud segments and insights across sources."
+  default_prompt: "Use $sf-datacloud-snowflake-salesforce-segment to create a Data Cloud segment, and a calculated insight if needed, that combines Snowflake order or customer data with Salesforce-synced objects."
