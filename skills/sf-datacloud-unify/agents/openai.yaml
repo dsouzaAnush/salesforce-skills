@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Cloud Unify"
+  short_description: "Unify customer data in Salesforce Data Cloud."
+  default_prompt: "Connect CRM, Marketing Cloud, Snowflake, or S3 data and build unified customer profiles, segments, and activations."
