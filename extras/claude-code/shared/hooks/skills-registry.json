@@ -783,6 +783,110 @@
       "triggerWhen": "user configures OAuth flows, JWT bearer auth, Connected Apps, or touches .connectedApp-meta.xml / .eca-meta.xml files",
       "doNotTriggerWhen": "Named Credentials for callouts (use sf-integration), permission policies (use sf-permissions), or API endpoint code (use sf-apex)"
     },
+    "sf-heroku-connect": {
+      "keywords": [
+        "heroku connect",
+        "salesforce sync",
+        "mapping",
+        "mapping reload",
+        "heroku postgres",
+        "connect import",
+        "connect export",
+        "connect diagnose",
+        "connect db set",
+        "connect sf auth"
+      ],
+      "intentPatterns": [
+        "setup.*heroku.*connect",
+        "diagnose.*heroku.*connect",
+        "fix.*sync.*mapping",
+        "import.*connect.*config",
+        "export.*connect.*config",
+        "reload.*mapping",
+        "connect.*salesforce.*postgres"
+      ],
+      "priority": "low",
+      "description": "Heroku Connect sync and mapping operations",
+      "triggerWhen": "user provisions Heroku Connect, reviews mappings, imports or exports Connect config, diagnoses sync state, or uses heroku connect:* commands",
+      "doNotTriggerWhen": "AppLink connection setup (use sf-heroku-applink-connections), AppLink publication workflows (use sf-heroku-applink-publications), or generic Salesforce data migration without Heroku Connect"
+    },
+    "sf-heroku-applink-connections": {
+      "keywords": [
+        "heroku applink",
+        "salesforce connect",
+        "trusted org",
+        "jwt authorization",
+        "salesforce connect jwt",
+        "data cloud authorization",
+        "applink connection",
+        "applink authorization",
+        "heroku salesforce connect"
+      ],
+      "intentPatterns": [
+        "setup.*applink.*connection",
+        "connect.*salesforce.*org",
+        "create.*jwt.*authorization",
+        "provision.*applink",
+        "review.*trusted.*org",
+        "configure.*heroku.*salesforce.*connect"
+      ],
+      "priority": "low",
+      "description": "Heroku AppLink org connections and authorizations",
+      "triggerWhen": "user provisions Heroku AppLink, connects Salesforce or Data Cloud orgs, creates JWT authorizations, or uses heroku salesforce:connect commands",
+      "doNotTriggerWhen": "publishing Heroku apps into Salesforce or Agentforce (use sf-heroku-applink-publications), Heroku Connect sync mappings (use sf-heroku-connect), or generic OAuth Connected App setup (use sf-connected-apps)"
+    },
+    "sf-heroku-applink-publications": {
+      "keywords": [
+        "applink publication",
+        "salesforce publish",
+        "openapi",
+        "agentforce action",
+        "api catalog",
+        "shared publication",
+        "service mesh",
+        "authorized-user",
+        "user-plus",
+        "heroku salesforce publish"
+      ],
+      "intentPatterns": [
+        "publish.*heroku.*salesforce",
+        "publish.*agentforce.*action",
+        "prepare.*openapi.*publication",
+        "review.*applink.*publication",
+        "expose.*heroku.*app.*salesforce",
+        "salesforce:publish"
+      ],
+      "priority": "low",
+      "description": "Heroku AppLink publication workflows",
+      "triggerWhen": "user publishes a Heroku app into Salesforce, Flow, Apex, Data Cloud, or Agentforce, reviews OpenAPI publication setup, or inspects AppLink publication state",
+      "doNotTriggerWhen": "setting up trusted org connections or JWT authorizations (use sf-heroku-applink-connections), Heroku Connect sync operations (use sf-heroku-connect), or non-AppLink Heroku deployment questions"
+    },
+    "sf-heroku-slack-agents": {
+      "keywords": [
+        "slack bot",
+        "slack agent",
+        "slack bolt",
+        "socket mode",
+        "request url",
+        "slack manifest",
+        "procfile",
+        "slack events",
+        "heroku slack",
+        "slack app token"
+      ],
+      "intentPatterns": [
+        "deploy.*slack.*heroku",
+        "configure.*socket.*mode",
+        "setup.*slack.*request.*url",
+        "review.*bolt.*app",
+        "fix.*slack.*procfile",
+        "verify.*slack.*bot.*heroku"
+      ],
+      "priority": "low",
+      "description": "Slack Bolt agents on Heroku",
+      "triggerWhen": "user deploys or troubleshoots Slack Bolt JavaScript or TypeScript apps on Heroku, chooses between HTTP Request URLs and Socket Mode, or configures Slack app manifests and Procfiles",
+      "doNotTriggerWhen": "non-Heroku Slack frameworks, Salesforce conversation design without Heroku deployment, or generic Heroku app operations that are unrelated to Slack agents"
+    },
     "sf-debug": {
       "keywords": [
         "debug",
