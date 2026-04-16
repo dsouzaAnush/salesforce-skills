@@ -20,6 +20,17 @@ MARKETPLACE = ROOT / ".agents" / "plugins" / "marketplace.json"
 ROOT_AGENT_METADATA = ROOT / "agents" / "openai.yaml"
 
 
+def iter_skill_dirs() -> list[Path]:
+    return sorted(path for path in (ROOT / "skills").iterdir() if path.is_dir() and (path / "SKILL.md").is_file())
+
+
+def canonicalize_skill_name(skill_name: str) -> str:
+    normalized = skill_name.strip().lower().replace("_", "-")
+    if normalized.startswith("data360-"):
+        return f"d360-{normalized.removeprefix('data360-')}"
+    return normalized
+
+
 def parse_openai_yaml(path: Path) -> dict[str, str]:
     data: dict[str, str] = {}
     in_interface = False
@@ -128,12 +139,38 @@ def validate_skill_metadata() -> list[str]:
     return errors
 
 
+def validate_skill_name_collisions() -> list[str]:
+    errors: list[str] = []
+    raw_names_by_canonical: dict[str, set[str]] = {}
+    owning_dirs_by_canonical: dict[str, set[str]] = {}
+
+    for skill_dir in iter_skill_dirs():
+        frontmatter = extract_frontmatter((skill_dir / "SKILL.md").read_text(encoding="utf-8"))
+        skill_name = parse_field(frontmatter, "name")
+
+        for raw_name in {skill_dir.name, skill_name}:
+            canonical_name = canonicalize_skill_name(raw_name)
+            raw_names_by_canonical.setdefault(canonical_name, set()).add(raw_name)
+            owning_dirs_by_canonical.setdefault(canonical_name, set()).add(skill_dir.name)
+
+    for canonical_name, owning_dirs in sorted(owning_dirs_by_canonical.items()):
+        if len(owning_dirs) < 2:
+            continue
+        variants = ", ".join(sorted(raw_names_by_canonical[canonical_name]))
+        errors.append(
+            f"Skill naming collision after normalization for '{canonical_name}': {variants}"
+        )
+
+    return errors
+
+
 def collect_validation_errors() -> list[str]:
     errors: list[str] = []
     errors.extend(validate_plugin_manifest())
     errors.extend(validate_marketplace())
     errors.extend(validate_root_agent_metadata())
     errors.extend(validate_skill_metadata())
+    errors.extend(validate_skill_name_collisions())
     return errors
 
 

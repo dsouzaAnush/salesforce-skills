@@ -82,3 +82,24 @@ def test_validate_repo_main_success_and_failure(monkeypatch) -> None:
     monkeypatch.setattr(validator, "collect_validation_errors", lambda: ["bad state"])
     with pytest.raises(SystemExit):
         validator.main()
+
+
+def test_validate_repo_reports_normalized_skill_name_collisions(tmp_path: Path, monkeypatch) -> None:
+    root = tmp_path
+    d360_skill_dir = root / "skills" / "d360-ux-new-app"
+    data360_skill_dir = root / "skills" / "data360-ux-new-app"
+
+    write_file(d360_skill_dir / "SKILL.md", "---\nname: d360-ux-new-app\ndescription: Demo\n---\n")
+    write_file(
+        data360_skill_dir / "SKILL.md",
+        "---\nname: data360-ux-new-app\ndescription: Demo\n---\n",
+    )
+
+    monkeypatch.setattr(validator, "ROOT", root)
+
+    errors = validator.validate_skill_name_collisions()
+
+    assert errors == [
+        "Skill naming collision after normalization for 'd360-ux-new-app': "
+        "d360-ux-new-app, data360-ux-new-app"
+    ]
