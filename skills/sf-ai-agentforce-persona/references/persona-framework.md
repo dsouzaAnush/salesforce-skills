@@ -265,7 +265,7 @@ Write 2-5 belief statements. Each should be a conviction that generates observab
 
 - Mentor, not authority. Guides with questions rather than directives.
 - "What do you think happens if we change this?" not "You need to change this."
-- Celebrates progress. Adapts complexity to the user's skill level. *(Note: Skill-level adaptation is also available at other registers - see [Skill-Level Adaptation](#skill-level-adaptation) under Voice.)*
+- Celebrates progress. Adapts complexity to the user's skill level. *(Note: Skill-level adaptation is also available at other registers - see [Skill-Level Adaptation](#skilllevel-adaptation-optional) under Voice.)*
 - Deference to user's learning pace - never rushes past confusion.
 
 *Note: "Manager" exists on the spectrum but is rarely the right fit for agents, so it is not elaborated here.*

@@ -8,13 +8,13 @@
 
 [![Maintainer](https://img.shields.io/badge/Maintainer-Anush_Dsouza-blue?logo=github)](https://github.com/dsouzaAnush)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-40-4F46E5)](#available-skills)
+[![Skills](https://img.shields.io/badge/Skills-52-4F46E5)](#available-skills)
 [![Claude Code Agents](https://img.shields.io/badge/Claude_Code_Agents-7-059669)](#agent-team)
 [![Standard](https://img.shields.io/badge/Agent_Skills-Compatible-0F766E)](https://agentskills.io)
 
 A reusable hybrid plugin and skill library for **Salesforce-focused coding agents** covering Apex, Flow, LWC, SOQL, metadata, Data Cloud, integration, testing, deployment, Agentforce workflows, and Flex Credit estimation.
 
-**Included:** 40 Salesforce skills, repo-root Codex plugin packaging, per-skill Codex metadata, and a separated Claude Code compatibility layer with agents, hooks, installers, and LSP-backed feedback for Apex, LWC, and Agent Script.
+**Included:** 52 Salesforce skills, repo-root Codex plugin packaging, per-skill Codex metadata, and a separated Claude Code compatibility layer with agents, hooks, installers, and LSP-backed feedback for Apex, LWC, and Agent Script.
 
 > Recommended workflow for this repository: agent-first development in Codex, Claude Code, Pi, and similar coding agents. VS Code is optional tooling, not the primary operating model.
 >
@@ -46,7 +46,7 @@ Examples of acceptable additive files:
 Rules:
 
 - shared upstream files under `skills/sf-*/` must stay semantically identical to `Jaganpro/sf-skills`
-- additive local skill families that do not exist upstream, such as `sf-heroku-*`, may be added as repo-owned extensions when they do not rewrite shared upstream files
+- additive local skill families that do not exist upstream, such as `sf-heroku-*` and `d360-*`, may be added as repo-owned extensions when they do not rewrite shared upstream files
 - local compatibility files may be added, regenerated, or removed as needed
 - future syncs should start from upstream content first, then regenerate the local Codex metadata layer
 
@@ -68,7 +68,8 @@ The library is organized by capability area so you can scan quickly, pick the ri
 | 🔌 **Integration** | [sf-connected-apps](skills/sf-connected-apps/), [sf-integration](skills/sf-integration/) | OAuth, External Client Apps, Named Credentials, callouts, and events |
 | ☁️ **Heroku & AppLink** | [sf-heroku-connect](skills/sf-heroku-connect/), [sf-heroku-applink-connections](skills/sf-heroku-applink-connections/), [sf-heroku-applink-publications](skills/sf-heroku-applink-publications/), [sf-heroku-slack-agents](skills/sf-heroku-slack-agents/) | Heroku Connect sync, AppLink trusted org connections, AppLink publication flows, and Slack agents on Heroku |
 | 💰 **Planning & Estimation** | [sf-flex-estimator](skills/sf-flex-estimator/) | Public list-price Flex Credit estimation, scenario planning, and cost optimization for Agentforce and Data Cloud |
-| ☁️ **Data Cloud** | [sf-datacloud](skills/sf-datacloud/), [sf-datacloud-connect](skills/sf-datacloud-connect/), [sf-datacloud-prepare](skills/sf-datacloud-prepare/), [sf-datacloud-harmonize](skills/sf-datacloud-harmonize/), [sf-datacloud-segment](skills/sf-datacloud-segment/), [sf-datacloud-act](skills/sf-datacloud-act/), [sf-datacloud-retrieve](skills/sf-datacloud-retrieve/) | Data Cloud connections, ingestion, harmonization, segmentation, activation, and retrieval.<br><sub>Beta / Community Preview · live execution uses the external community <code>sf data360</code> runtime</sub> |
+| ☁️ **Data Cloud** | [sf-datacloud](skills/sf-datacloud/), [sf-datacloud-connect](skills/sf-datacloud-connect/), [sf-datacloud-prepare](skills/sf-datacloud-prepare/), [sf-datacloud-harmonize](skills/sf-datacloud-harmonize/), [sf-datacloud-segment](skills/sf-datacloud-segment/), [sf-datacloud-act](skills/sf-datacloud-act/), [sf-datacloud-retrieve](skills/sf-datacloud-retrieve/), [d360-query](skills/d360-query/), [d360-metadata](skills/d360-metadata/), [d360-data-ops](skills/d360-data-ops/), [d360-explorer](skills/d360-explorer/), [d360-set-org](skills/d360-set-org/) | Data Cloud connections, ingestion, harmonization, segmentation, activation, retrieval, metadata management, org discovery, SQL workflows, and default org setup.<br><sub>Beta / Community Preview · live execution uses the external community <code>sf data360</code> runtime</sub> |
+| 📚 **Agentforce Data Library** | [d360-adl-create](skills/d360-adl-create/), [d360-adl-upload](skills/d360-adl-upload/), [d360-adl-query](skills/d360-adl-query/), [d360-adl-create-and-upload](skills/d360-adl-create-and-upload/) | Agentforce Data Library creation, uploads, hybrid query workflows, and end-to-end create-and-index flows. `d360-adl-create-and-upload` only needs a Slack bot token when used from Slack with Slack-hosted files. |
 | 🤖 **AI & Automation** | [sf-ai-agentscript](skills/sf-ai-agentscript/), [sf-ai-agentforce](skills/sf-ai-agentforce/), [sf-ai-agentforce-testing](skills/sf-ai-agentforce-testing/), [sf-ai-agentforce-observability](skills/sf-ai-agentforce-observability/), [sf-ai-agentforce-persona](skills/sf-ai-agentforce-persona/) | Agent design, Agent Script, testing, observability, and persona design |
 | 🚀 **DevOps & Tooling** | [sf-deploy](skills/sf-deploy/), [sf-vlocity-build-deploy](skills/sf-vlocity-build-deploy/), [sf-diagram-mermaid](skills/sf-diagram-mermaid/), [sf-diagram-nanobananapro](skills/sf-diagram-nanobananapro/) | Salesforce + Vlocity DataPack deployment automation, Mermaid diagrams, and visual artifacts |
 | 🏢 **Industries** | [sf-industry-commoncore-omnistudio-analyze](skills/sf-industry-commoncore-omnistudio-analyze/), [sf-industry-commoncore-datamapper](skills/sf-industry-commoncore-datamapper/), [sf-industry-commoncore-integration-procedure](skills/sf-industry-commoncore-integration-procedure/), [sf-industry-commoncore-callable-apex](skills/sf-industry-commoncore-callable-apex/), [sf-industry-commoncore-omniscript](skills/sf-industry-commoncore-omniscript/), [sf-industry-commoncore-flexcard](skills/sf-industry-commoncore-flexcard/), [sf-industry-cme-epc-model](skills/sf-industry-cme-epc-model/) | OmniStudio + EPC: dependency analysis, Data Mappers, Integration Procedures, callable Apex, OmniScripts, FlexCards, and CME product/offer catalog modeling |
@@ -123,7 +124,7 @@ npx skills add dsouzaAnush/salesforce-skills --list
 curl -sSL https://raw.githubusercontent.com/dsouzaAnush/salesforce-skills/main/extras/claude-code/tools/install.sh | bash
 ```
 
-This installs 40 skills, 7 specialist agents, a shared hook system, and the local LSP engine. It also configures LLM-powered guardrails (Haiku prompt hook), SOQL schema validation, Prettier auto-formatting, Code Analyzer (PMD/ESLint), and debug log analysis (Haiku agent hook).
+This installs 52 skills, 7 specialist agents, a shared hook system, and the local LSP engine. It also configures LLM-powered guardrails (Haiku prompt hook), SOQL schema validation, Prettier auto-formatting, Code Analyzer (PMD/ESLint), and debug log analysis (Haiku agent hook).
 
 > **Data Cloud note:** the installer brings in the `sf-datacloud-*` skills, but the external community `sf data360` CLI runtime is still a separate prerequisite. On first-time install the installer can prompt for it, or you can request it explicitly with `--with-datacloud-runtime`.
 
@@ -190,10 +191,10 @@ python3 ~/.claude/sf-skills-install.py --profile delete old
 
 ```
 ~/.claude/
-├── skills/                    # 40 Salesforce skills
+├── skills/                    # 52 Salesforce skills
 │   ├── sf-apex/SKILL.md
 │   ├── sf-flow/SKILL.md
-│   └── ... (33 more)
+│   └── ... (50 more)
 ├── agents/                    # 7 FDE + PS agents
 │   ├── fde-strategist.md
 │   ├── fde-engineer.md
